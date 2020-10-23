@@ -2,17 +2,18 @@
 function christmas(){
 
     let d = new Date(2020, 11, 25);
-    if(Date.now() < d ){
+    let dt = Date.now();
+    if(dt < d ){
         
         let y = new Date(Date.now());
         // console.log(y);
-        // console.log(d);
+        //console.log(dt);
 
         let x = d-y; // returns in millisecond
         days = Math.floor(x / (1000 * 60 * 60 * 24));
         console.log(days + " days");
 
-        return days + " days until Christmas.";
+        return days + " days until Christmas" ;
 
         
     }

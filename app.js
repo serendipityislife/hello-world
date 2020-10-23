@@ -1,7 +1,27 @@
 
 
-
 /*
+
+// ## Arrow Functions ## do not have their own this value!
+let sum = (num1, num2) => num1 + num2;
+
+let output = sum(12,23);
+console.log(output);
+
+
+let message = {
+    name: 'John',
+    regularFunction: function () {
+        console.log(this);
+        console.log('Hello ' + this.name); // Returns Hi John
+    },
+    arrowFunction: () => console.log('Hi ' + this.name) //RETURNS Hi
+}
+message.regularFunction();
+message.arrowFunction();
+console.log(this);                  // returns window object
+
+
 //## Closures ##  Prevents variables from going out of scope
 
 //example1
@@ -28,7 +48,7 @@ function setupCounter(val){
 let counter1 = setupCounter(0);         //Has it's own environment and variables
 console.log(counter1());
 console.log(counter1());
-let counter2 = setupCounter(120);       //Has it's own environment and variables 
+let counter2 = setupCounter(120);       //Has it's own environment and variables
 console.log(counter2());
 console.log(counter2());
 console.log(counter2());
