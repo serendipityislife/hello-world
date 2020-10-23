@@ -1,7 +1,7 @@
 # hello-world
 
-PLuralsight course:
-## JavaScript: Functions
+##Puralsight course:
+### JavaScript: Functions
 
--- playground for setting up projects and learning -- 
+-- playground for setting up a project and learning this course (as part of the JavaSript Path) -- 
 
