@@ -1,3 +1,7 @@
 # hello-world
-playground for setting up projects and learning
+
+PLuralsight course:
+## JavaScript: Functions
+
+-- playground for setting up projects and learning -- 
 
