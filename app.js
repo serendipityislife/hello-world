@@ -1,6 +1,157 @@
+// ## Spread Operator ##
+
+function greet (person1, person2) {
+    console.log('Hello ' + person1 +' and ' + person2);
+}
+let names = ['John', 'Mary'];
+greet(...names);
+
+function display(char1, char2, char3, char4, ...others){
+    console.log(others);
+    console.log(char1, char2, char3, char4);
+} 
+
+let letters = 'abcdefgh';
+display(...letters);
 
 
 /*
+// ## Rest Parameters ## - The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
+
+function sum(...theArgs) {
+    return theArgs.reduce((previous, current) => {
+        return previous + current;
+    });
+}
+
+console.log(sum(1, 2, 3));
+// expected output: 6
+
+console.log(sum(1, 2, 3, 4));
+// expected output: 10
+
+function greet(message, ...names) {
+    console.log(message + ' everyone!');
+    names.forEach(name => console.log('Hi ' + name));
+}
+
+greet('Hellloooo','joe', 'asdf', 'Kooos');
+
+
+// ## (5) Default Parameters ##
+
+function sayHi(message, name = 'World'){
+    console.log(message + name);
+}
+
+sayHi('Hello ');
+sayHi('Hi ','Katelyn');
+
+
+// ## parseInt ##
+
+console.log(parseInt('F', 16)); // 15
+console.log(parseInt('15',10)); //15
+console.log(parseInt('Hi', 10)); //NaN
+
+
+// ## parseFloat ##
+
+console.log(parseFloat('3.99')); // 3.99
+console.log(parseFloat('3.99e-1')); // 0.399
+console.log(parseFloat('')); //NaN
+
+// ## escape ##
+// The escape() function was deprecated in JavaScript version 1.5. Use encodeURI() or encodeURIComponent() instead. The escape() function encodes a string.
+
+console.log(escape('text'));
+console.log(escape('asf@%$'));
+
+// ## unescape ##
+//The unescape() function was deprecated in JavaScript version 1.5. Use decodeURI() or decodeURIComponent() instead.
+//The unescape() function decodes an encoded string.
+
+console.log(unescape('asf@%25%24'));
+
+// ## eval ##
+Research on why one would use eval:
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval:
+!!!!Warning: Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval(). See Never use eval()!, below.
+The eval() function evaluates JavaScript code represented as a string.
+
+
+https://javascript.info/eval  In modern programming eval is used very sparingly. It’s often said that “eval is evil”.
+Right now, there’s almost no reason to use eval. If someone is using it, there’s a good chance they can replace it with a modern language construct or a JavaScript Module.
+
+The eval() function evaluates or executes an argument.
+If the argument is an expression, eval() evaluates the expression. If the argument is one or more JavaScript statements, eval() executes the statements.
+The built-in eval function allows to execute a string of code.
+
+let x = 1;
+let y = 2;
+let s = 'asb';
+console.log(eval('x+y+s'));
+//not sure about purpose of eval if below returns the same result:
+console.log(x+y+s);
+
+
+//extras - from W3Schools
+let q = 10;
+let w = 20;
+let a = eval("q * w");
+let b = eval("2 + 2");
+let c = eval("q + 17");
+
+let res = a + b + c;
+console.log(a);
+console.log(b);
+console.log(c);
+
+
+// ## bind() ##
+
+let p1 = {name: 'Mary',
+          getName: function(){
+              return this.name;
+          }
+};
+let p2 = {name: 'John'};
+let getNameCopy = p1.getName.bind(p2);
+console.log(getNameCopy());  // John
+console.log(getNameCopy);  // return this.name;  <- copy of getName function (just as FYI)
+
+// ## apply() ##
+
+function intro(name, profession){
+    console.log("My name is " + name + " and I am a " + profession + ".");
+}
+
+intro("John", "student");
+
+intro.apply(undefined,["Mary", "lawyer"]);
+intro.call(undefined,"James", "artist");
+
+
+//## call() ##
+
+let person1 = {name: 'John', age: 22}
+let person2 = {name: 'Mary', age: 26}
+
+let sayHi = function(){
+    console.log('Hi ' + this.name);
+}
+
+sayHi();                //Hi
+sayHi.call(person1);    //Hi John
+sayHi.call(person2);    // Hi Mary
+
+let sayHey = function(message){
+    console.log(message + ', ' + this.name);
+}
+
+sayHey.call(person1, 'Hi'); //Hi, John
+
 
 // ## Arrow Functions ## do not have their own this value!
 let sum = (num1, num2) => num1 + num2;
